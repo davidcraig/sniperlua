@@ -1,0 +1,7 @@
+## Interface: 80300
+## Title: SniperLUA
+## Notes: LUA helpers library
+## Version: 1.0.0
+## Author: PrivateSniper
+
+sniperlua.toc
