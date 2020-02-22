@@ -4,6 +4,8 @@
   - [exists](#exists)
   - [isType](#isType)
 - Table Methods
+  - [deepExists](#deepExists)
+  - [deepGet](#deepGet)
 - String Methods
   - [hasPeriod](#hasPeriod)
   - [split](#split)
@@ -11,36 +13,44 @@
 
 ## General Helpers
 
-### exists (variable)
+### exists
 
-> check if a variable exists
+> Check if a variable exists
 
+```lua
+sniperlua.exists(var)
 ```
-snipertips.exists(undefined_variable)
+
+```lua
+sniperlua.exists(undefined_variable)
     > false
 
 local x = nil
-snipertips.exists(x)
+sniperlua.exists(x)
     > false (nil is the same as undefined)
 
 local y = false
-snipertips.exists(y)
+sniperlua.exists(y)
     > true
 ```
 
-### isType (var, type{s})
+### isType 
 
 > check if a variable is of a given type(s)
 
+```lua
+sniperlua.isType(var, type{s})
 ```
+
+```lua
 local str = 'this is a string'
 
-snipertips.isType(str, 'string')
+sniperlua.isType(str, 'string')
     > true
 
 (we can also check if it is any type from a list of types, eg.)
 
-snipertips.isType(str, { 'string', 'table' })
+sniperlua.isType(str, { 'string', 'table' })
     > true
 ```
 
@@ -49,11 +59,15 @@ snipertips.isType(str, { 'string', 'table' })
 
 ## Table Methods
 
-### deepExists (var, blob)
+### deepExists
 
 > Check if a nested property exists
 
+```lua
+sniperlua.deepExists(var, blob)
 ```
+
+```lua
 local deepObject = { x: true, y: '123', z: { a: 'foo', b: nil } }
 
 sniperlua.deepExists(deepObject, 'x')
@@ -66,11 +80,15 @@ sniperlua.deepExists(deepObject, 'z.d')
     > false
 ```
 
-### deepGet (var, blob)
+### deepGet
 
 > Retrieve value of deeply nested property
 
+```lua
+sniperlua.deepGet(var, blob)
 ```
+
+```lua
 local deepObject = { x: true, y: '123', z: { a: 'foo', b: nil } }
 
 sniperlua.deepGet(deepObject, 'x')
@@ -85,11 +103,15 @@ sniperlua.deepGet(deepObject, 'z.a')
 
 ## String Methods
 
-### hasPeriod (str)
+### hasPeriod
 
 > Check if a given string contains a '.' character
 
+```lua
+sniperlua.hasPeriod(str)
 ```
+
+```lua
 local str = 'this has no period'
 local str2 = 'this.has.periods.'
 
@@ -100,11 +122,15 @@ sniperlua.hasPeriod(str2)
     > true
 ```
 
-### split (str, delimeter = '.')
+### split 
 
 > split a string into a table, delimiter is optional (defaults to '.')
 
+```lua
+sniperlua.split(str[, delimeter])
 ```
+
+```lua
 local str = 'ihavenothingtosplitby'
 local str2 = 'i.have.periods'
 local str3 = 'i|am|delimited|by|pipe'
@@ -119,11 +145,16 @@ sniperlua.split(str3)
     > { 'i', 'am', 'delimited', 'by', 'pipe' }
 ```
 
-### wordIsNumeric (word)
+### wordIsNumeric
 
 > Checks if a given word is purely numeric
 
+```lua
+sniperlua.wordIsNumeric(word)
 ```
+
+
+```lua
 sniperlua.wordIsNumeric('123')
     > true
 
