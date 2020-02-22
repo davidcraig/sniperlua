@@ -30,6 +30,10 @@ function sniperlua.exists(v)
     return v ~= nil
 end
 
+---------------------
+--- TABLE METHODS ---
+---------------------
+
 function sniperlua.deepGet(parent, blob)
     if not sniperlua.isType(parent, 'table') then
         return nil
@@ -94,7 +98,8 @@ end
 function sniperlua.split(str, delim)
     -- early returns
     if not delim then delim = "." end
-    if not sniperlua.hasPeriod(str) then
+    
+    if not string.find(str, delim, 1, true) then
         return str
     end
 
